@@ -1,234 +1,480 @@
-<<<<<<< HEAD
-# SnipLink---URL-Shortner-with-Analytics
-=======
-# Sniplink — URL Shortener & Analytics Platform
+# SnipLink — URL Shortener & Analytics Platform
 
-A production-ready full-stack URL Shortener and Analytics Platform built with **React**, **Node.js (Express)**, and **MongoDB**.
-
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)
+A production-ready full-stack URL Shortener and Analytics Platform built with **React**, **Node.js (Express)**, and **PostgreSQL**.
 
 ---
 
-## ✨ Features
+# 🚀 Project Overview
 
-### Core
-- 🔗 **URL Shortening** — Generate unique short codes or custom aliases
-- 📊 **Rich Analytics** — Track clicks, devices, browsers, locations, referrers
-- 🔐 **JWT Authentication** — Secure registration, login, and per-user data isolation
-- 📱 **Responsive UI** — Works beautifully on desktop, tablet, and mobile
+SnipLink is a modern URL shortening and analytics platform that enables users to create short links, generate QR codes, manage URLs efficiently, and gain detailed insights into link performance through an interactive dashboard.
 
-### Bonus
-- 🎨 **Dark / Light Mode** — Toggle with persistence
-- 📷 **QR Code Generation** — Downloadable QR codes for every link
-- ⏰ **Link Expiration** — Set expiry dates on URLs
-- ✏️ **Edit URLs** — Update destination, alias, or expiration anytime
-- 📤 **CSV Bulk Upload** — Import URLs from CSV files
-- 📥 **CSV Export** — Download analytics data
-- 🌐 **Public Stats Page** — Shareable link statistics
-- 🛡️ **Rate Limiting** — Abuse prevention on all endpoints
+The platform focuses on usability, analytics, security, and scalability while providing a clean and responsive user experience.
 
 ---
 
-## 🏗️ Tech Stack
+# ✨ Features
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | React 18, Vite, Tailwind CSS 3, Recharts, React Router 6 |
-| Backend | Node.js, Express 4, Mongoose |
-| Database | MongoDB |
-| Auth | JWT, bcryptjs |
-| Analytics | ua-parser-js, geoip-lite |
+## Core Features
+
+* 🔗 URL Shortening
+* ✏️ Custom Alias Support
+* 🔐 JWT Authentication
+* 🔑 Google Authentication
+* 📱 Responsive Design
+* 📊 Analytics Dashboard
+* 🔍 Search and Manage URLs
+
+## Advanced Features
+
+* 📷 QR Code Generation & Download
+* 🌙 Dark / Light Mode
+* ⏰ URL Expiration
+* ✏️ Edit Existing URLs
+* 📤 CSV Bulk URL Import
+* 📥 Analytics CSV Export
+* 🌐 Public Statistics Page
+* 🛡️ API Rate Limiting
+* 📍 Location Analytics
+* 💻 Device, Browser, and OS Tracking
 
 ---
 
-## 📁 Project Structure
+# 🏗️ Tech Stack
 
+| Layer              | Technology                                 |
+| ------------------ | ------------------------------------------ |
+| Frontend           | React 18, Vite, Tailwind CSS, React Router |
+| Backend            | Node.js, Express.js                        |
+| Database           | PostgreSQL                                 |
+| Authentication     | JWT, Google OAuth                          |
+| Analytics & Charts | Recharts                                   |
+| QR Code            | qrcode                                     |
+| Deployment         | Netlify, Render                            |
+
+---
+
+# 📋 AI Planning Document
+
+## Problem Statement
+
+Long URLs are difficult to share and provide little visibility into user engagement. Existing URL shortening solutions often lack personalized analytics and advanced link management capabilities.
+
+## Proposed Solution
+
+Build a full-stack URL shortening platform that:
+
+* Generates short URLs instantly
+* Supports custom aliases
+* Tracks user engagement
+* Provides detailed analytics
+* Supports QR code generation
+* Enables secure user management
+
+## Target Users
+
+* Students
+* Developers
+* Digital Marketers
+* Content Creators
+* Small Businesses
+
+---
+
+# 🎯 Feature Documentation
+
+## Authentication
+
+* User Registration
+* User Login
+* JWT Authentication
+* Google Authentication
+* Protected Routes
+
+## URL Management
+
+* Create Short URLs
+* Custom Aliases
+* Edit URLs
+* Delete URLs
+* URL Expiration Support
+
+## Analytics
+
+* Total Click Tracking
+* Browser Analytics
+* Device Analytics
+* Operating System Analytics
+* Location Analytics
+* Referrer Analytics
+
+## Additional Features
+
+* QR Code Generation & Download
+* CSV Import
+* CSV Export
+* Public Statistics Sharing
+* Dark / Light Theme Toggle
+
+---
+
+# 🏛️ Architecture Diagram
+
+```text
++----------------------+
+|    React Frontend    |
+| (Netlify Deployment) |
++----------+-----------+
+           |
+           ▼
++----------------------+
+|   Express Backend    |
+| (Render Deployment)  |
++----------+-----------+
+           |
+           ▼
++----------------------+
+| Local PostgreSQL DB  |
++----------------------+
 ```
-├── server/                     # Express API
-│   └── src/
-│       ├── config/             # DB & env config
-│       ├── controllers/        # Route handlers
-│       ├── middleware/          # Auth, validation, errors, rate-limit
-│       ├── models/             # Mongoose schemas
-│       ├── routes/             # Express routes
-│       ├── services/           # Analytics service
-│       └── utils/              # Helpers (code gen, validators, geoip)
+
+---
+
+# 📁 Project Structure
+
+```text
+SnipLink---URL-Shortner-with-Analytics
 │
-└── client/                     # React frontend
-    └── src/
-        ├── api/                # Axios instance
-        ├── components/         # Reusable UI & feature components
-        ├── context/            # Auth & Theme contexts
-        ├── pages/              # Page components
-        └── utils/              # Date formatting, constants
+├── client/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   └── utils/
+│
+├── server/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── models/
+│   │   └── utils/
+│
+└── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+# ⚙️ Setup Instructions
 
-### Prerequisites
+## Prerequisites
 
-- **Node.js** ≥ 18
-- **MongoDB** (local or [Atlas](https://www.mongodb.com/cloud/atlas))
-- **npm** or **yarn**
+* Node.js 18+
+* PostgreSQL
+* npm
 
-### 1. Clone the Repository
+---
+
+## 1. Clone Repository
 
 ```bash
-git clone <your-repo-url>
-cd URL
+git clone https://github.com/VivekhaShreeK/SnipLink---URL-Shortner-with-Analytics.git
+
+cd SnipLink---URL-Shortner-with-Analytics
 ```
 
-### 2. Set Up the Backend
+---
+
+## 2. Backend Setup
 
 ```bash
 cd server
+
 npm install
+```
 
-# Copy env file and edit as needed
-cp .env.example .env
-# Edit .env with your MongoDB URI and JWT secret
+Create a `.env` file inside the server folder:
 
-# Start the server
+```env
+PORT=5000
+
+DATABASE_URL=postgresql://username:password@localhost:5432/sniplink
+
+JWT_SECRET=your_jwt_secret
+
+JWT_EXPIRES_IN=24h
+
+BASE_URL=http://localhost:5000
+
+CLIENT_URL=http://localhost:5173
+```
+
+Start the backend:
+
+```bash
 npm run dev
 ```
 
-The API will start on `http://localhost:5000`.
+Backend runs on:
 
-### 3. Set Up the Frontend
+```text
+http://localhost:5000
+```
+
+---
+
+## 3. Frontend Setup
 
 ```bash
 cd client
+
 npm install
 
-# Start the dev server
 npm run dev
 ```
 
-The app will open on `http://localhost:5173`.
+Frontend runs on:
+
+```text
+http://localhost:5173
+```
 
 ---
 
-## ⚙️ Environment Variables
+# 📡 API Endpoints
 
-Create a `.env` file in the `server/` directory:
+## Authentication
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `PORT` | `5000` | Server port |
-| `NODE_ENV` | `development` | Environment mode |
-| `MONGODB_URI` | `mongodb://localhost:27017/url-shortener` | MongoDB connection string |
-| `JWT_SECRET` | — | Secret key for JWT signing (change in production!) |
-| `JWT_EXPIRES_IN` | `24h` | Token expiration time |
-| `BASE_URL` | `http://localhost:5000` | Base URL for short links |
-| `CLIENT_URL` | `http://localhost:5173` | Frontend URL (CORS) |
+| Method | Endpoint           |
+| ------ | ------------------ |
+| POST   | /api/auth/register |
+| POST   | /api/auth/login    |
+| POST   | /api/auth/google   |
+| GET    | /api/auth/me       |
 
 ---
 
-## 📡 API Endpoints
+## URL Management
 
-### Auth (`/api/auth`)
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| POST | `/register` | No | Create account |
-| POST | `/login` | No | Get JWT token |
-| GET | `/me` | Yes | Get current user |
-
-### URLs (`/api/urls`)
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| POST | `/` | Yes | Create short URL |
-| GET | `/` | Yes | List user's URLs |
-| PATCH | `/:id` | Yes | Update URL |
-| DELETE | `/:id` | Yes | Delete URL |
-| POST | `/bulk` | Yes | CSV bulk upload |
-
-### Analytics (`/api/analytics`)
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| GET | `/:urlId` | Yes | Get URL analytics |
-| GET | `/:urlId/export` | Yes | Export as CSV |
-
-### Other
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| GET | `/api/public/:code` | No | Public stats |
-| GET | `/:code` | No | Redirect to original URL |
-| GET | `/api/health` | No | Health check |
+| Method | Endpoint       |
+| ------ | -------------- |
+| POST   | /api/urls      |
+| GET    | /api/urls      |
+| PATCH  | /api/urls/:id  |
+| DELETE | /api/urls/:id  |
+| POST   | /api/urls/bulk |
 
 ---
 
-## 📊 Database Schema
+## Analytics
 
-### Users
+| Method | Endpoint                     |
+| ------ | ---------------------------- |
+| GET    | /api/analytics/:urlId        |
+| GET    | /api/analytics/:urlId/export |
+
+---
+
+## Public Routes
+
+| Method | Endpoint          |
+| ------ | ----------------- |
+| GET    | /api/public/:code |
+| GET    | /:code            |
+| GET    | /api/health       |
+
+---
+
+# 🗄️ Database Schema
+
+## Users
+
 ```javascript
 {
-  name: String,          // required
-  email: String,         // unique, indexed
-  password: String,      // bcrypt hashed
+  id: UUID,
+  name: String,
+  email: String,
+  password: String,
   createdAt: Date,
   updatedAt: Date
 }
 ```
 
-### URLs
+## URLs
+
 ```javascript
 {
-  originalUrl: String,   // validated URL
-  shortCode: String,     // unique, indexed (7-char nanoid)
-  customAlias: String,   // optional, unique
-  user: ObjectId,        // → Users, indexed
-  clicks: Number,        // denormalized counter
-  isActive: Boolean,
-  expiresAt: Date,       // optional
-  lastVisitedAt: Date,
+  id: UUID,
+  originalUrl: String,
+  shortCode: String,
+  customAlias: String,
+  userId: UUID,
+  clicks: Number,
+  expiresAt: Date,
   createdAt: Date,
   updatedAt: Date
 }
 ```
 
-### Visits
+## Visits
+
 ```javascript
 {
-  url: ObjectId,         // → URLs, indexed
-  timestamp: Date,
+  id: UUID,
+  urlId: UUID,
   ip: String,
-  userAgent: String,
-  browser: String,       // parsed
-  os: String,            // parsed
-  device: String,        // desktop/mobile/tablet
-  country: String,       // from GeoIP
-  city: String,          // from GeoIP
-  referrer: String
+  browser: String,
+  os: String,
+  device: String,
+  country: String,
+  city: String,
+  referrer: String,
+  timestamp: Date
 }
-// Index: { url: 1, timestamp: -1 }
 ```
 
 ---
 
-## 🚢 Deployment
+# 🚢 Deployment
 
-### Backend (e.g., Render / Railway)
+## Frontend Deployment (Netlify)
 
-1. Set environment variables in your deployment platform
-2. Set `NODE_ENV=production`
-3. Set `MONGODB_URI` to your Atlas connection string
-4. Set `BASE_URL` to your production API domain
-5. Build command: `npm install`
-6. Start command: `npm start`
+Frontend URL:
 
-### Frontend (e.g., Vercel / Netlify)
+```text
+https://sniplink-url.netlify.app/
+```
 
-1. Set the build command: `npm run build`
-2. Set the output directory: `dist`
-3. Add environment variable: `VITE_BASE_URL=https://your-api-domain.com`
-4. Configure rewrites: all routes → `index.html` (SPA)
+Build Settings:
+
+```bash
+Build Command: npm run build
+
+Publish Directory: dist
+```
 
 ---
 
-## 📄 License
+## Backend Deployment (Render)
 
-MIT © 2024
->>>>>>> 8ec4d54 (Initial commit)
+Backend URL:
+
+```text
+https://sniplink-url.onrender.com
+```
+
+Build Command:
+
+```bash
+npm install
+```
+
+Start Command:
+
+```bash
+npm start
+```
+
+---
+
+# 🌍 Live Application
+
+## Frontend
+
+https://sniplink-url.netlify.app/
+
+## Backend
+
+https://sniplink-url.onrender.com
+
+## GitHub Repository
+
+https://github.com/VivekhaShreeK/SnipLink---URL-Shortner-with-Analytics
+
+---
+
+# 📝 Assumptions Made
+
+1. Users must authenticate before managing URLs.
+2. Custom aliases must be unique.
+3. Expired URLs cannot be accessed.
+4. Analytics are recorded for every successful redirect.
+5. Location information is IP-based and may not always be exact.
+6. PostgreSQL is used as the primary relational database.
+7. Google Authentication requires valid OAuth credentials.
+
+---
+
+# 🤖 AI Development Workflow
+
+This application was developed using AI-assisted development practices.
+
+### Planning Phase
+
+* Defined project requirements
+* Designed architecture
+* Identified core and advanced features
+
+### Development Phase
+
+* Generated project structure
+* Built frontend components
+* Developed backend APIs
+* Integrated PostgreSQL
+* Implemented authentication
+* Added analytics tracking
+* Developed dashboard visualizations
+
+### Testing Phase
+
+* Verified authentication flow
+* Tested URL shortening
+* Validated analytics tracking
+* Tested responsiveness
+* Tested deployment
+
+### Documentation Phase
+
+* Added setup instructions
+* Documented architecture
+* Listed assumptions
+* Included deployment details
+* Prepared demonstration material
+
+All AI-generated code was reviewed, modified, tested, and understood before integration.
+
+---
+
+# ✅ Evaluation Checklist
+
+* ✅ Clean and modular JavaScript code
+* ✅ Responsive and modern UI
+* ✅ AI Planning Documentation
+* ✅ Architecture Diagram
+* ✅ Setup Instructions
+* ✅ Assumptions Documentation
+* ✅ Google Authentication
+* ✅ QR Code Download
+* ✅ CSV Import & Export
+* ✅ Analytics Dashboard
+* ✅ PostgreSQL Database
+* ✅ Netlify Deployment
+* ✅ Render Deployment
+
+---
+
+# 👨‍💻 Developer
+
+**Vivekha Shree Karthikeyan**
+
+---
+
+# 📄 License
+
+MIT License
+
+---
+
+### This project is a part of a hackathon run by https://katomaran.com
