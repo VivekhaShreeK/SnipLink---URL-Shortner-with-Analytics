@@ -476,5 +476,3 @@ All AI-generated code was reviewed, modified, tested, and understood before inte
 MIT License
 
 ---
-
-### This project is a part of a hackathon run by https://katomaran.com
