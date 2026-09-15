@@ -2,6 +2,8 @@
 
 A production-ready full-stack URL Shortener and Analytics Platform built with **React**, **Node.js (Express)**, and **PostgreSQL**.
 
+Live : https://sniplink-url.netlify.app/
+
 ---
 
 # 🚀 Project Overview
